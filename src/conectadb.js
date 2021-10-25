@@ -2,12 +2,12 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore/lite';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDjidKo5X9cLV2RJgKyxs1b37rI8o26cuw",
-  authDomain: "leilao-manha.firebaseapp.com",
-  projectId: "leilao-manha",
-  storageBucket: "leilao-manha.appspot.com",
-  messagingSenderId: "121697448688",
-  appId: "1:121697448688:web:3dd213303648c521e9c835"  
+  apiKey: "AIzaSyDQldG35MaoNtPMPXFS7CqOemLEH1EjGA0",
+  authDomain: "leilao-obras-noite.firebaseapp.com",
+  projectId: "leilao-obras-noite",
+  storageBucket: "leilao-obras-noite.appspot.com",
+  messagingSenderId: "972992146091",
+  appId: "1:972992146091:web:85851308c7ca821da8a5ee"
 };
 
 const app = initializeApp(firebaseConfig);
