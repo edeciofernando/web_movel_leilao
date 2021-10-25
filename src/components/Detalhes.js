@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { doc, getDoc, addDoc, collection } from "firebase/firestore/lite";
+import { doc, getDoc } from "firebase/firestore/lite";
 import { db } from "../conectadb";
 
 const Detalhes = () => {
@@ -24,31 +24,6 @@ const Detalhes = () => {
   useEffect(() => {
     getObra(id);
   }, [id]);
-
-  const gravaLance = async () => {
-    try {
-
-        console.log(id);
-
-//      const docRef = doc(db, "obras", id);
-
-//      const newDoc = await addDoc(docRef, "lance", {"teste": "ola"});
-
-        const docRef = await addDoc(collection(db, "obras", id, "lance"), {"teste": "ola"});
-
-
-//      setAviso("Ok! Lance cadastrado com sucesso");
-alert("Ok")
-    } catch (erro) {
-//      setAviso("Erro: " + erro);
-alert(erro);
-    }
-//    tempoAviso();
-
-//    e.target.reset();
-  };
-
-
 
   return (
     <div className="container">
@@ -75,7 +50,7 @@ alert(erro);
           </div>
         </div>
         <div className="col-sm-6 mt-2">
-          <button className="btn btn-danger btn-lg btn-block" onClick={gravaLance}>
+          <button className="btn btn-danger btn-lg btn-block">
             GOSTOU? DÊ UM LANCE!        
           </button>        
 
