@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore/lite";
-
 import { db } from "../conectadb";
 import ItemLista from "./ItemLista";
 
 const ListaObras = () => {
-  const [obras, setObras] = useState([]);
 
+  const [obras, setObras] = useState([])
+
+  // Get a list of cities from your database
   const getObras = async () => {
     const obrasCol = collection(db, "obras");
     const obraSnapshot = await getDocs(obrasCol);
     const obraList = obraSnapshot.docs.map((doc) => {
-      const id = doc.id;
-      const dados = doc.data();
-      return { id, ...dados };
+       const dados = doc.data();
+       const id = doc.id;
+       return {id, ...dados};
     });
-
-    console.log(obraList);
+//    console.log(obraList);
     setObras(obraList);
   };
 
@@ -29,15 +29,15 @@ const ListaObras = () => {
       <div className="card-columns">
         {obras.map(obra => (
           <ItemLista 
-            id={obra.id}
-            titulo={obra.titulo}
-            minimo={obra.minimo}
-            foto={obra.foto}
-            autor={obra.autor} />           
+            id={obra.id}          
+            titulo={obra.titulo}          
+            autor={obra.autor}          
+            minimo={obra.minimo}          
+            foto={obra.foto} />         
         ))}
       </div>
     </div>
-  ); 
+  );
 };
 
 export default ListaObras;
